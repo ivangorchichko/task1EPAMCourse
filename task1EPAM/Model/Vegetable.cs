@@ -8,7 +8,7 @@ namespace task1EPAM
     {
         public string Name { get; }
         public double Calories { get; }
-        public double Gram { get; }
+        public double Gram { get; set; }
         public Vegetable(string name, double calories)
         {
             Name = name;

@@ -6,5 +6,7 @@ namespace task1EPAM.Model
 {
     class Salad
     {
+        public List<Vegetable> SaladIngredients { get; set; }
+        public double TotalCalories { get; set; }
     }
 }

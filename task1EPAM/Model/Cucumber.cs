@@ -13,7 +13,7 @@ namespace task1EPAM.Model
         }
         public override void ShowVegetableInfo()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{Name} : calories {Calories}, total grams {Gram}");
         }
     }
 }

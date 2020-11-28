@@ -5,8 +5,8 @@ using System.Text;
 
 namespace task1EPAM.Contracts
 {
-    interface ISorting<Type>
+    interface ISorting
     {
-        void Sort(ObservableCollection<Vegetable> collection, Type param);
+        void Sort(ObservableCollection<Vegetable> collection, string param);
     }
 }
