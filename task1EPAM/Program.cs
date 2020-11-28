@@ -1,4 +1,5 @@
 ﻿using System;
+using task1EPAM.Model;
 
 namespace task1EPAM
 {
@@ -6,7 +7,9 @@ namespace task1EPAM
     {
         static void Main(string[] args)
         {
-
+            Vegetable vegetable = new Carrot("",3);
+            
         }
     }
+    
 }

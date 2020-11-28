@@ -8,13 +8,12 @@ namespace task1EPAM
     {
         public string Name { get; }
         public double Calories { get; }
-        public double Gramm { get; }
-        public Vegetable(string name, double calories, double gramm)
+        public double Gram { get; }
+        public Vegetable(string name, double calories)
         {
             Name = name;
             Calories = calories;
-            Gramm = gramm;
         }
-        protected abstract void ShowVegetableInfo();
+        public abstract void ShowVegetableInfo();
     }
 }
