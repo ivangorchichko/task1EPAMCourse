@@ -11,18 +11,25 @@ namespace task1EPAM.Service
     class JsonManager
     {
         private const string filePath = @"D:\Курсы .Net\task1\task1EPAM\task1EPAM\Data\Vegetables.json";
-        public static void Deserialization()
-        {  
+        public static ObservableCollection<Vegetable> Deserialization()
+        {
+            var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto, Formatting = Formatting.Indented };
             var jsonString = File.ReadAllText(filePath);
-            ObservableCollection<Vegetable> vegetableCollection = null;
-            vegetableCollection = JsonConvert.DeserializeObject<ObservableCollection<Vegetable>>(jsonString, new JsonSerializerSettings { });
+            ObservableCollection<Vegetable> vegetableCollection = JsonConvert.DeserializeObject<ObservableCollection<Vegetable>>(jsonString, settings);
+            return vegetableCollection;
         }
+
+
+
+
+
         //public static void Save(ObservableCollection<Vegetable> vegetableCollection)
         //{
-        //    var resultString = JsonConvert.SerializeObject(vegetableCollection);
+        //    var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto, Formatting = Formatting.Indented };
+        //    var jsonString = JsonConvert.SerializeObject(vegetableCollection, settings);
         //    using var filename = new FileStream(filePath, FileMode.Open);
         //    using var writer = new StreamWriter(filename, Encoding.Default);
-        //    writer.Write(resultString);
+        //    writer.Write(jsonString);
         //    writer.Close();
         //}
     }

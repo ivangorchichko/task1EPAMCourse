@@ -9,15 +9,18 @@ namespace task1EPAM
     {
         static void Main(string[] args)
         {
-            Vegetable vegetable = new Carrot("",3);
-            ObservableCollection<Vegetable> collection = null ;
-            JsonManager.Deserialization();
-
-            //collection.Add(new Carrot("Carrot", 32));
-            //collection.Add(new Onion("Onion", 41));
-            //collection.Add(new Cucumber("Cucumber", 15));
-            //collection.Add(new Tomato("Tomato", 18));
-            //JsonManager.Save(collection);
+            Vegetable vegetable = new Carrot("",3);            
+            ObservableCollection<Vegetable> vegetables = VegetableCollection.GetCollection(JsonManager.Deserialization());
+           
+            //ObservableCollection<Vegetable> collection = new ObservableCollection<Vegetable>()
+            //{
+            //    new Carrot("Carrot", 32),
+            //    new Onion("Onion", 41),
+            //    new Cucumber("Cucumber", 15),
+            //    new Tomato("Tomato", 18)
+            //}; 
+            //JsonManager.Deserialization();
+           
         }
     }
     
