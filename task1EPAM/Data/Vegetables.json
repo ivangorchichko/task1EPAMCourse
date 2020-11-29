@@ -3,24 +3,24 @@
     "$type": "task1EPAM.Model.Carrot, task1EPAM",
     "Name": "Carrot",
     "Calories": 32.0,
-    "Gram": 0.0
+    "Gram": 100.0
   },
   {
     "$type": "task1EPAM.Model.Onion, task1EPAM",
     "Name": "Onion",
     "Calories": 41.0,
-    "Gram": 0.0
+    "Gram": 100.0
   },
   {
     "$type": "task1EPAM.Model.Cucumber, task1EPAM",
     "Name": "Cucumber",
     "Calories": 15.0,
-    "Gram": 0.0
+    "Gram": 100.0
   },
   {
     "$type": "task1EPAM.Model.Tomato, task1EPAM",
     "Name": "Tomato",
     "Calories": 18.0,
-    "Gram": 0.0
+    "Gram": 100.0
   }
 ]

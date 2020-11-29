@@ -9,8 +9,9 @@ namespace task1EPAM
     {
         static void Main(string[] args)
         {
-            Vegetable vegetable = new Carrot("",3);            
-            ObservableCollection<Vegetable> vegetables = VegetableCollection.GetCollection(JsonManager.Deserialization());
+            SaladCompilation salad = new SaladCompilation();
+            //Vegetable vegetable = new Carrot("",3);            
+            //ObservableCollection<Vegetable> vegetables = VegetableCollection.GetCollection(JsonManager.Deserialization());
            
             //ObservableCollection<Vegetable> collection = new ObservableCollection<Vegetable>()
             //{

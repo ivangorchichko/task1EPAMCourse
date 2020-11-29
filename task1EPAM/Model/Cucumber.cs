@@ -6,8 +6,8 @@ namespace task1EPAM.Model
 {
     sealed class Cucumber : Vegetable
     {
-        public Cucumber(string name, double calories)
-            :base (name,calories)
+        public Cucumber(string name, double calories, double gram)
+            :base (name,calories, gram)
         {
 
         }

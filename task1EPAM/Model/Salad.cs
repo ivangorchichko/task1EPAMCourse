@@ -8,5 +8,10 @@ namespace task1EPAM.Model
     {
         public List<Vegetable> SaladIngredients { get; set; }
         public double TotalCalories { get; set; }
+        public Salad()
+        {
+            SaladIngredients = new List<Vegetable>();
+            TotalCalories = 0;
+        }
     }
 }
