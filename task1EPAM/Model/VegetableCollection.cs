@@ -5,12 +5,12 @@ using System.Text;
 
 namespace task1EPAM.Model
 {
-    class VegetableCollection
+    class VegetableCollection// уничтожить
     {
         private static ObservableCollection<Vegetable> _vegetableCollection;
-        private VegetableCollection(ObservableCollection<Vegetable> collection)
+        private VegetableCollection()
         {
-            _vegetableCollection = collection;
+            
         }
         public static ObservableCollection<Vegetable> GetCollection(ObservableCollection<Vegetable> collection)
         {

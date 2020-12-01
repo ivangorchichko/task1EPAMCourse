@@ -7,6 +7,7 @@ namespace task1EPAM.Contracts
 {
     interface ISearch
     {
-        string Search(ObservableCollection<Vegetable> collection, double firstRange, double secondRange);
+        void Search();
+   //     ObservableCollection<Vegetable> collection, double firstRange, double secondRange
     }
 }

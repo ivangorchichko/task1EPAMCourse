@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace task1EPAM
+namespace task1EPAM.Model
 {
-    abstract class Vegetable
+    abstract class Vegetable 
     {
-        private double gram = 0;
+        private double _gram;
         public string Name { get; private set; }
         public double Calories { get; private set; }
         public double Gram
         {
             get
             {
-                return gram;
+                return _gram;
             }
             set
             {
-                gram = value;
-                Calories = Calories*gram/100;
+                _gram = value;
+                Calories = Calories*_gram/100;
             }
         }
         public Vegetable(string name, double calories, double gram)
@@ -28,5 +28,6 @@ namespace task1EPAM
             Gram = gram;
         }
         public abstract void ShowVegetableInfo();
+
     }
 }

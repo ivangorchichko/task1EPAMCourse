@@ -10,11 +10,11 @@ namespace task1EPAM.Service
 {
     class JsonManager
     {
-        private const string filePath = @"D:\Курсы .Net\task1\task1EPAM\task1EPAM\Data\Vegetables.json";
-        public static ObservableCollection<Vegetable> Deserialization()
+        private const string FilePath = @"D:\Курсы .Net\task1\task1EPAM\task1EPAM\Data\Vegetables.json";
+        public static ObservableCollection<Vegetable> Deserialize()
         {
             var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto, Formatting = Formatting.Indented };
-            var jsonString = File.ReadAllText(filePath);
+            var jsonString = File.ReadAllText(FilePath);
             ObservableCollection<Vegetable> vegetableCollection = JsonConvert.DeserializeObject<ObservableCollection<Vegetable>>(jsonString, settings);
             return vegetableCollection;
         }

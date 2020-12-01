@@ -7,6 +7,7 @@ namespace task1EPAM.Contracts
 {
     interface ISorting
     {
-        void Sort(ObservableCollection<Vegetable> collection, string param);
+        void Sort();
+//ObservableCollection<Vegetable> collection, string param
     }
 }
