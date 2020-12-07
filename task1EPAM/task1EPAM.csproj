@@ -9,4 +9,14 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Data\Vegetables.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\Vegetables.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

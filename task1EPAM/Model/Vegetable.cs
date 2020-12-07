@@ -1,14 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace task1EPAM.Model
 {
-    abstract class Vegetable 
+    public abstract class Vegetable : ICloneable
     {
         private double _gram;
+
         public string Name { get; private set; }
+        
         public double Calories { get; private set; }
+
         public double Gram
         {
             get
@@ -18,16 +19,24 @@ namespace task1EPAM.Model
             set
             {
                 _gram = value;
-                Calories = Calories*_gram/100;
+                Calories = Calories * _gram / 100;
             }
         }
+
         public Vegetable(string name, double calories, double gram)
         {
             Name = name;
             Calories = calories;
             Gram = gram;
         }
-        public abstract void ShowVegetableInfo();
 
+        public virtual void ShowVegetableInfo()
+        {
+            Console.WriteLine($"{Name} : calories {Calories}, total grams {Gram}");
+        }
+
+        public object Clone() => CreateClone(this);
+
+        protected abstract Vegetable CreateClone(Vegetable vegetable);
     }
 }

@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace task1EPAM.Model
 {
-    class Salad
+    internal class Salad
     {
-        public ObservableCollection<Vegetable> SaladIngredients { get; set; }
+        public IList<Vegetable> Ingredients { get; set; } = new List<Vegetable>();
+
         public double TotalCalories { get; set; }
-        public Salad()
-        {
-            SaladIngredients = new ObservableCollection<Vegetable>();
-        }
     }
 }

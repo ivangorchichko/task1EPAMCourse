@@ -1,67 +1,72 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using task1EPAM.Contracts;
-using task1EPAM.Model;
+﻿using task1EPAM.Contracts;
+using task1EPAM.Enums;
 using task1EPAM.Service;
 
 namespace task1EPAM
 {
     class Program
     {
+        private static readonly IVegetablesRepository _vegetablesRepository = new JsonVegetablesRepository();
+        private static readonly ISaladService _saladService = new SaladService(_vegetablesRepository);
+        private static readonly IUIManager _uIManager = new ConsoleManager(_saladService, _vegetablesRepository);
+
         static void Main(string[] args)
         {
-            StartMenu();
+            Start();
         }
-        private static void StartMenu()
+        private static void Start()
         {
-            SaladCompilation complitation = new SaladCompilation();
             while (true)
             {
-                Console.WriteLine("Choose operation with salad: \n" +
-                    "1 - add vegetable to salad\n" +
-                    "2 - calculate total calories in salad\n" +
-                    "3 - find vegetables at calories range\n" +
-                    "4 - sort calories by the one parameter\n" +
-                    "5 - view salad ingridients");
-                short operationNumber = Convert.ToInt16(Console.ReadLine());
-                switch (operationNumber)
+                _uIManager.ShowOperationsMenu();
+                if (!_uIManager.TryParseEnum<Operation>(out var operation))
                 {
-                    case 1:
+                    continue;
+                }else 
+                if(operation == 0)
+                {
+                    break;
+                }
+                switch (operation)
+                {
+                    case Operation.Add:
                         {
-
-                            complitation.AddVegetable();
+                            _uIManager.ShowAvailableVegetables();
+                            var selectedVegetable = _uIManager.SelectVegetable();
+                            var selectedVegetableGram = _uIManager.GetVegetableGram();
+                            selectedVegetable.Gram = selectedVegetableGram;
+                            _saladService.AddVegetable(selectedVegetable);
                             break;
                         }
-                    case 2:
+                    case Operation.Calculate:
                         {
-                            complitation.Calculate();
+                            _uIManager.ShowSaladTotalCalories();
                             break;
                         }
-                    case 3:
+                    case Operation.Search:
                         {
-                            complitation.Search();
+                            var minCalories = _uIManager.GetMinCaloriesRange();
+                            var maxCalories = _uIManager.GetMaxCaloriesRange();
+                            _saladService.SearchByCalories(minCalories, maxCalories);
                             break;
                         }
-                    case 4:
+                    case Operation.Sort:
                         {
-                            complitation.Sort();
-                            break;
-                        }
-                    case 5:
-                        {
-                            if (complitation.Salad.SaladIngredients.Count != 0)
+                            _uIManager.ShowAvaibleParameters();
+                            if (!_uIManager.TryParseEnum<SortType>(out var sortType))
                             {
-                                foreach (var ingredient in complitation.Salad.SaladIngredients)
-                                {
-                                    ingredient.ShowVegetableInfo();
-                                }
+                                continue;
                             }
-                            else Console.WriteLine("Nothing added!");
+                            _saladService.Sort(sortType);
+                            break;
+                        }
+                    case Operation.View:
+                        {
+                            _uIManager.DisplaySaladComponents(_saladService.GetSaladComponents());
                             break;
                         }
                 }
             }
         }
     }
-    
 }

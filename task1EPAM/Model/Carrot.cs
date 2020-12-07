@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using task1EPAM.Contracts;
 
 namespace task1EPAM.Model
 {
-    sealed class Carrot : Vegetable
+    internal sealed class Carrot : Vegetable
     {
         public Carrot(string name, double calories, double gram)
            : base(name, calories, gram)
@@ -14,8 +11,12 @@ namespace task1EPAM.Model
         }
         public override void ShowVegetableInfo()
         {
-            Console.WriteLine($"{Name} : calories {Calories}, total grams {Gram}");
+            Console.WriteLine($"{Name} has {Calories} calories in {Gram} grams");
         }
-        
+        protected override Vegetable CreateClone(Vegetable vegetable)
+        {
+            var carrot = (Carrot)vegetable;
+            return new Carrot(carrot.Name, carrot.Calories, carrot.Gram);
+        }
     }
 }
