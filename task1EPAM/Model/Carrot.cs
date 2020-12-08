@@ -4,6 +4,7 @@ namespace task1EPAM.Model
 {
     internal sealed class Carrot : Vegetable
     {
+        private const string _kind = "Vitaminous";
         public Carrot(string name, double calories, double gram)
            : base(name, calories, gram)
         {
@@ -11,7 +12,7 @@ namespace task1EPAM.Model
         }
         public override void ShowVegetableInfo()
         {
-            Console.WriteLine($"{Name} has {Calories} calories in {Gram} grams");
+            Console.WriteLine($"{Name} has {Calories} calories in {Gram} grams, kind of {_kind}");
         }
         protected override Vegetable CreateClone(Vegetable vegetable)
         {
